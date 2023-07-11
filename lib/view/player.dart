@@ -8,7 +8,10 @@ import 'package:on_audio_query/on_audio_query.dart';
 
 class PlayerScreen extends StatelessWidget {
   final List<SongModel> songdata;
-  const PlayerScreen({super.key, required this.songdata});
+  const PlayerScreen({
+    super.key,
+    required this.songdata,
+  });
 
   @override
   Widget build(BuildContext context) {
