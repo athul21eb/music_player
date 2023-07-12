@@ -24,6 +24,7 @@ class PlayerScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Container(
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
                   width: MediaQuery.of(context).size.width * 0.85,
                   height: MediaQuery.of(context).size.width * 0.85,
                   decoration: const BoxDecoration(
@@ -32,6 +33,10 @@ class PlayerScreen extends StatelessWidget {
                   ),
                   alignment: Alignment.center,
                   child: QueryArtworkWidget(
+                    artworkQuality: FilterQuality.high,
+                    artworkFit: BoxFit.fill,
+                    artworkWidth: double.infinity,
+                    artworkHeight: double.infinity,
                     id: songdata[controller.playerindex.value].id,
                     type: ArtworkType.AUDIO,
                     nullArtworkWidget: const Icon(
@@ -61,6 +66,7 @@ class PlayerScreen extends StatelessWidget {
                     Text(
                       songdata[controller.playerindex.value].title,
                       maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: ourStyle(
                         color: bgDarkcolor,
@@ -73,6 +79,7 @@ class PlayerScreen extends StatelessWidget {
                       songdata[controller.playerindex.value].artist!,
                       textAlign: TextAlign.center,
                       maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: ourStyle(
                         color: bgDarkcolor,
                         fontfamily: regular,

@@ -111,11 +111,15 @@ class Home extends StatelessWidget {
                                   : null,
                               title: Text(
                                 "${snapshot.data![index].title} ",
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 style: ourStyle(fontfamily: bold, size: 18),
                               ),
                               subtitle: Text(
                                 "${snapshot.data![index].artist} ",
-                                style: ourStyle(fontfamily: bold, size: 12),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: ourStyle(fontfamily: regular, size: 12),
                               ),
                             ),
                           ),
@@ -129,8 +133,8 @@ class Home extends StatelessWidget {
           },
           future: controller.audioQuaery.querySongs(
             ignoreCase: true,
-            orderType: OrderType.ASC_OR_SMALLER,
-            sortType: null,
+            orderType: OrderType.DESC_OR_GREATER,
+            sortType: SongSortType.DATE_ADDED,
             uriType: UriType.EXTERNAL,
           ),
         ));
